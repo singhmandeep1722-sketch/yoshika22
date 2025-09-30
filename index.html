@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Happy Birthday Yoshu❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #ffb347; }
+    nav button {
+      margin-left: 20px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 20px;
+      background: #ff6f61;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    nav button:hover { background: #ff4a3d; }
+
+    section {
+      padding: 70px 20px;
+      min-height: 50vh;
+      text-align: center;
+    }
+
+    /* Home */
+    .home-title {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ffb347;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+    .home-sub { font-size: 20px; color: #eee; }
+
+    /* Slideshow */
+    .slideshow {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      animation: fadeIn 1s ease;
+    }
+    .gift-image {
+      width: 100%;
+      max-height: 300px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .gift-title { font-size: 28px; margin: 15px 0 8px; color: #ffdd94; }
+    .gift-desc { font-size: 18px; color: #eee; }
+
+    .controls { margin-top: 20px; }
+    .controls button {
+      margin: 0 8px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #ff6f61;
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .controls button:hover { background: #ff4a3d; }
+
+    /* Notes */
+    .note-box {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    .note-box h2 { color: #ffb347; margin-bottom: 15px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gifts">Gifts</a>
+      <a href="#notes">Notes</a>
+      <button onclick="toggleMusic()">🎶 Play/Pause</button>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home">
+    <h1 class="home-title">Happy 22nd Birthday My Love ❤️</h1>
+    <p class="home-sub">22 gifts, countless memories, and a lifetime of love.</p>
+  </section>
+
+  <!-- Gifts -->
+  <section id="gifts">
+    <div class="slideshow">
+      <img id="giftImg" class="gift-image" src="images/gift1.jpg" alt="Gift">
+      <h2 id="giftTitle" class="gift-title">Gift 1</h2>
+      <p id="giftDesc" class="gift-desc">A handwritten letter from my heart.</p>
+      <div class="controls">
+        <button onclick="prevGift()">⏮ Prev</button>
+        <button onclick="togglePause()">⏯ Pause/Play</button>
+        <button onclick="nextGift()">Next ⏭</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes -->
+  <section id="notes">
+    <div class="note-box">
+      <h2>My Personal Note 💌</h2>
+      <p>
+        My love, on your 22nd birthday, I want you to know how much you mean to me.  
+        Every gift is a piece of my heart — little reminders that you are my everything.  
+        You are my happiness, my comfort, my adventure, and my forever.  
+        I love you more with each passing day ❤️
+      </p>
+    </div>
+  </section>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const gifts = [
+      { title: "Gift 1", desc: "A handwritten letter from my heart.", img: "images/gift1.jpg" },
+      { title: "Gift 2", desc: "A puzzle that we solve in our life like this pic.", img: "images/gift2.jpeg" },
+      { title: "Gift 3", desc: "A magnet that helps to live life together.", img: "images/gift3.jpeg" },
+      { title: "Gift 4", desc: "A cute teddy for my cute puttu.", img: "images/gift4.jpeg" },
+      { title: "Gift 5", desc: "A pen so that my puttu keep shining.", img: "images/gift5.jpeg" },
+      { title: "Gift 6", desc: "cute pics of yours.", img: "images/gift6.jpeg" },
+      { title: "Gift 7", desc: "A flower to remind you that your smile blooms brighter than any rose.", img: "images/gift7.jpeg" },
+      { title: "Gift 8", desc: "Harry Potter kinder joy pack for my puttu.", img: "images/gift8.jpeg" },
+      { title: "Gift 9", desc: "A panda for my cute panda.", img: "images/gift9.jpeg" },
+      { title: "Gift 10", desc: "pack of card that keep our relation joyfull.", img: "images/gift10.jpeg" },
+      { title: "Gift 11", desc: "collection of some cartoons magnet.", img: "images/gift11.jpeg" },
+      { title: "Gift 12", desc: "A small pocket diary of our memories.", img: "images/gift12.jpeg" },
+      { title: "Gift 13", desc: "A magnet game for us .", img: "images/gift13.jpeg" },
+      { title: "Gift 14", desc: "your derma co shampoo for ur hair .", img: "images/gift14.jpeg" },
+      { title: "Gift 15", desc: "A pack of camleo sketch that u like in stationary.", img: "images/gift15.jpeg" },
+      { title: "Gift 16", desc: "A comb for your beautiful hairs.", img: "images/gift16.jpeg" },
+      { title: "Gift 17", desc: "A memorable cup just for u", img: "images/gift17.jpeg" },
+      { title: "Gift 18", desc: "A powerbank to charge your phone.", img: "images/gift18.jpeg" },
+      { title: "Gift 19", desc: "our beloved ganesha", img: "images/gift19.jpeg" },
+      { title: "Gift 20", desc: "Harry Potter small keychain.", img: "images/gift20.jpeg" },
+      { title: "Gift 21", desc: "A mirror cum image for both purpose", img: "images/gift21.jpeg" },
+      { title: "Gift 22", desc: "A beautiful website that collect all gift on one place.", img: "images/gift22.jpeg" }
+    ];
+
+    let currentIndex = 0;
+    let intervalId;
+    let isPaused = false;
+
+    const img = document.getElementById("giftImg");
+    const title = document.getElementById("giftTitle");
+    const desc = document.getElementById("giftDesc");
+    const music = document.getElementById("bgMusic");
+
+    function showGift(index) {
+      const gift = gifts[index];
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = gift.img;
+        title.textContent = gift.title;
+        desc.textContent = gift.desc;
+        img.style.opacity = 1;
+      }, 300);
+    }
+
+    function nextGift() {
+      currentIndex = (currentIndex + 1) % gifts.length;
+      showGift(currentIndex);
+    }
+
+    function prevGift() {
+      currentIndex = (currentIndex - 1 + gifts.length) % gifts.length;
+      showGift(currentIndex);
+    }
+
+    function startAutoSlide() {
+      intervalId = setInterval(nextGift, 6000);
+    }
+
+    function togglePause() {
+      if (isPaused) {
+        startAutoSlide();
+      } else {
+        clearInterval(intervalId);
+      }
+      isPaused = !isPaused;
+    }
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    // Init
+    showGift(currentIndex);
+    startAutoSlide();
+
+    // Allow music after user interaction
+    document.body.addEventListener("click", () => {
+      music.play().catch(()=>{});
+    }, { once: true });
+  </script>
+
+</body>
+</html>
